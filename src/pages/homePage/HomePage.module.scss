@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+.header{
+  margin: 0 auto;
+  padding-top: 92px;
+  min-width: $mobile;
+
+  @media screen and (min-width:$desktop) {
+    padding-top: 86px;
+  }
+}
+
+.headerLogo{
+  width: calc(100% - 48px);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section{
+  margin: 32px auto 0;
+  padding-bottom: 233px;
+  max-width: $desktop;
+  width: calc(100% - 48px);
+  @media screen and (min-width:$desktop) {
+    margin: 16px auto 0;
+    padding-bottom: 188px;
+  }
+}
+
+.emptyList {
+  margin: 40px auto 0;
+
+  text-align: center;
+  color: teal;
+}

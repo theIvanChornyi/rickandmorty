@@ -1,0 +1,113 @@
+@import '../../variables.scss';
+
+.section{
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 23px 24px 85px;
+}
+
+.backBtn{
+  display: inline-flex;
+  align-items: center;
+  column-gap: 8px;
+
+  &__ico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+  }
+  &__text{
+
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: calc(21 / 18);
+  }
+    transition: fill $hover-function $hover-time,color $hover-function $hover-time ;
+
+  &:hover ,
+  &:focus  {
+    color: teal;
+    fill: teal;
+  }
+}
+
+.charName{
+  margin-top: 34px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: calc( 38 / 32);
+  color: #081F32;
+  text-align: center;
+  @media screen and (min-width:$desktop) {
+    margin-top: 16px;
+    font-size: 48px;
+    line-height: calc(38 / 56);
+  }
+  
+}
+
+.thumb{
+  min-width: 146px;
+  width: calc((146/360)*100vw );
+  max-width: 300px;
+  margin: 77px auto 0;
+
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4px solid #E5E5E5; 
+
+  @media screen and (min-width:$desktop) {
+    margin-top: 31px;
+  }
+}
+
+.info{
+  margin: 35px auto 0;
+  max-width: 413px;
+  @media screen and (min-width:$desktop) {
+    margin-top: 48px;
+  }
+  &__subtittle{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.15px;
+    color: #8E8E93;
+    @media screen and (min-width:$desktop) {
+      display: block;
+      text-align: center;
+    }
+  }
+  &__list{
+    margin-top: 16px;
+    padding-left: 16px;
+    
+  }
+
+  &__item{
+    padding-top: 9px;
+    padding-bottom: 11px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #E5E5E5;
+
+    &_Title{
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      color: #081F32;
+    }
+    &_Text{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: calc(20 / 14);
+      letter-spacing: 0.25px;
+      color: #6E798C;
+    }
+  }
+
+}

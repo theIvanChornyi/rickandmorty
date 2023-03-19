@@ -1,0 +1,21 @@
+@import '../../variables.scss';
+
+.charList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 24px;
+  margin: 0 auto;
+
+  margin-top: 32px;
+
+  @media screen and (min-width:$desktop) {
+      margin-top: 61px;
+    }
+  }
+
+
+
+  

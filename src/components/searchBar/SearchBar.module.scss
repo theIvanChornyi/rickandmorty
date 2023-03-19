@@ -1,0 +1,61 @@
+@import '../../variables.scss';
+
+$input-lef-padding: 48px;
+
+.form{
+  max-width: calc($desktop - 48px) ;
+  margin: 0 auto;
+  position: relative;
+}
+
+.input {
+  display: block;
+  width: calc(100% - 16px - $input-lef-padding);
+
+  margin: 0 auto;
+  padding: 16px 16px 16px $input-lef-padding;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+
+  font-size: large;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+
+  transition:  box-shadow $hover-function $hover-time;
+  &:focus{
+    box-shadow: $hover-shadow;
+    outline: none;
+  }
+  &::placeholder{
+    color: $placeholder-color;
+  }
+}
+
+.button{
+  position: absolute;
+  top:16px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+
+  border:none;
+  background: transparent;
+  cursor: pointer;
+  & svg{
+    fill: #000;
+    fill-opacity:.54;
+    transition: fill $hover-function $hover-time fill-opacity $hover-function $hover-time;
+  }
+  &:hover svg,&:focus svg{
+    fill-opacity: 1;
+    fill: teal;
+  }
+}
+

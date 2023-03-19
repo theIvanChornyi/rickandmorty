@@ -1,0 +1,18 @@
+// Transitions
+$hover-function: cubic-bezier(0.4, 0, 0.2, 1);
+$hover-time: 250ms;
+
+// Media breakpoints
+$mobile: 360px;
+$desktop: 1068px;
+
+// Shadows
+$dark-shadow:0px 1px 5px rgba(0, 0, 0, 0.2),
+0px 3px 4px rgba(0, 0, 0, 0.12),
+0px 2px 4px rgba(0, 0, 0, 0.14);
+
+$hover-shadow : 0 0 20px green,
+ 0 0 30px teal;
+
+$title-color:rgba(0, 0, 0, 0.87);
+$placeholder-color: rgba(0, 0, 0, 0.5);
