@@ -1,24 +1,31 @@
 import { createContext, FC, useCallback, useContext, useState } from 'react';
-import { IUser } from '../types';
+import { initStorage, saveToStorage } from '../helpers';
+import { IUser, IUserContext } from '../types';
 
-const userInit = {
+export const userInit = {
   name: '',
   auth: false,
+  picture: '',
 };
 
 interface IProps {
   children: JSX.Element;
 }
-export const AuthContext = createContext({});
+export const AuthContext = createContext<IUserContext | null>(null);
 
-const AuthProvider: FC<IProps> = ({ children }) => {
-  const [user, setUser] = useState<IUser>(userInit);
+const UserProvider: FC<IProps> = ({ children }) => {
+  const [user, setUser] = useState<IUser>(() => initStorage('user', userInit));
 
-  const logIn = useCallback(() => {
-    setUser(p => ({ ...p, auth: true }));
-  }, []);
+  const logIn = useCallback(
+    ({ name, picture }: IUser) => {
+      setUser({ name, picture, auth: true });
+      saveToStorage('user', { name, picture, auth: true });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
   const logOut = useCallback(() => {
-    setUser(p => ({ ...p, auth: false }));
+    setUser(userInit);
   }, []);
 
   return (
@@ -28,6 +35,6 @@ const AuthProvider: FC<IProps> = ({ children }) => {
   );
 };
 
-export const useUser = () => useContext(AuthContext);
+export const useUser = () => useContext(AuthContext) as IUserContext;
 
-export default AuthProvider;
+export default UserProvider;

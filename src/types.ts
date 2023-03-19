@@ -7,7 +7,14 @@ export enum STATE_MACHINE {
 
 export interface IUser {
   name: null | string;
+  picture: string;
   auth: boolean;
+}
+
+export interface IUserContext {
+  user: IUser;
+  logIn?: Function;
+  logOut?: Function;
 }
 
 export interface IRespInfo {

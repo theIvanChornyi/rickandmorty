@@ -89,13 +89,13 @@ export default function HomePage() {
       <Helmet>
         <title>Rick & Morty</title>
       </Helmet>
-      <header className={style.header}>
+      <div className={style.header}>
         <img
           className={style.headerLogo}
           src={TitleLogo}
           alt="Rick and morty logo"
         />
-      </header>
+      </div>
       <section className={style.section}>
         <SearchBar
           query={query}
