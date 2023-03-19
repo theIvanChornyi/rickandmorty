@@ -74,8 +74,8 @@ export default function HomePage() {
       setState(STATE_MACHINE.LOADING);
       const charList = await API.getCharactersByName(query);
       if (charList && charList.results.length > 0) {
-        saveToStorage('chars', charList?.results);
         setChars(p => [...p, ...charList?.results]);
+        saveToStorage('chars', chars);
         setState(STATE_MACHINE.RESOLVED);
       } else {
         setState(STATE_MACHINE.REJECTED);

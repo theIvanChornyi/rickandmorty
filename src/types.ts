@@ -5,6 +5,11 @@ export enum STATE_MACHINE {
   REJECTED = 'rejected',
 }
 
+export interface IUser {
+  name: null | string;
+  auth: boolean;
+}
+
 export interface IRespInfo {
   count: number;
   next: string;

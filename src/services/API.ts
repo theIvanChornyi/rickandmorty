@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { saveToStorage, initStorage } from '../helpers';
 import { IApiData, ICharListItem } from '../types';
 
 export default class RickAndMorty {
@@ -9,6 +10,10 @@ export default class RickAndMorty {
   private _amount: number = 0;
 
   constructor() {
+    const { total, amount } = initStorage('pages', { total: 0, amount: 1 });
+    this._totalPages = total;
+    this._amount = amount;
+
     if (!RickAndMorty.instanse) {
       RickAndMorty.instanse = this;
     }
@@ -51,6 +56,9 @@ export default class RickAndMorty {
       );
       this._totalPages = data.info.pages;
       this._amount = data.info.count;
+
+      saveToStorage('pages', { total: this._totalPages, amount: this._amount });
+
       return data;
     } catch (e: unknown) {
       if (e instanceof Error) {
