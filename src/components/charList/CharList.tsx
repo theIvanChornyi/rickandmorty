@@ -11,9 +11,11 @@ interface IProps {
 const CharList: FC<IProps> = memo(({ charsData }) => {
   const createItems = useMemo(
     () =>
-      charsData.map(char => {
-        return <CharItem key={char.id} char={char} />;
-      }),
+      charsData
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(char => {
+          return <CharItem key={char.id} char={char} />;
+        }),
     [charsData]
   );
 
