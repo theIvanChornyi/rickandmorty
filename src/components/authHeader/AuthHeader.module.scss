@@ -44,10 +44,10 @@
   border-radius:50%;
   overflow: hidden;
 
-  transition: transform cubic-bezier(.53, 1.42, .69, .12) 1000ms;
+  transition: transform $hover-function $hover-time;
 
   &:hover{
-    transform: rotate(3600deg) scale(1.3);
+    transform: scale(1.3);
   }
 }
 
