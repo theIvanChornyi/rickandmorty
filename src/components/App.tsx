@@ -11,10 +11,11 @@ const Page404 = lazy(() => import('../pages/page404/Page404'));
 function App() {
   return (
     <Suspense fallback={<Loader />}>
-      <AuthHeader />
       <Routes>
-        <Route path="/" element={<HomePage />} index />
-        <Route path="/:id" element={<CharPage />} />
+        <Route path="/" element={<AuthHeader />}>
+          <Route index element={<HomePage />} />
+          <Route path="/:id" element={<CharPage />} />
+        </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
     </Suspense>

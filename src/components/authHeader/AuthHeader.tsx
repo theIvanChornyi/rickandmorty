@@ -9,6 +9,7 @@ import { saveToStorage } from '../../helpers';
 
 import style from './AuthHeader.module.scss';
 import defaultUser from '../../img/defaulUser.png';
+import { Outlet } from 'react-router-dom';
 
 const AuthHeader = () => {
   const { user, logOut } = useUser();
@@ -41,23 +42,26 @@ const AuthHeader = () => {
   };
 
   return (
-    <header className={style.header}>
-      <div className={style.container}>
-        <div className={style.thumb}>
-          <img
-            src={user.picture || defaultUser}
-            alt={`${user.name} avatar` || 'user avatar'}
-          />
+    <>
+      <header className={style.header}>
+        <div className={style.container}>
+          <div className={style.thumb}>
+            <img
+              src={user.picture || defaultUser}
+              alt={`${user.name} avatar` || 'user avatar'}
+            />
+          </div>
+          <span className={style.userName}>{user.name}</span>
+          <button className={style.btn} onClick={onClick} type="button">
+            <span className={style.btn__text}>
+              {user.auth ? 'Logout' : 'Login'}
+            </span>
+          </button>
         </div>
-        <span className={style.userName}>{user.name}</span>
-        <button className={style.btn} onClick={onClick} type="button">
-          <span className={style.btn__text}>
-            {user.auth ? 'Logout' : 'Login'}
-          </span>
-        </button>
-      </div>
-      {isOpen && <Modal closeModal={closeModal} />}
-    </header>
+        {isOpen && <Modal closeModal={closeModal} />}
+      </header>
+      <Outlet />
+    </>
   );
 };
 export default AuthHeader;
