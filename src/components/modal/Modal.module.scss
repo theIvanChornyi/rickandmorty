@@ -59,6 +59,10 @@
   box-shadow: 1px 1px 1px grey;
   white-space: nowrap;
   cursor: pointer;
+  &:disabled{
+    opacity: 0.3;
+    cursor:auto
+  }
   &Icon{
     display: inline-block;
     vertical-align: middle;

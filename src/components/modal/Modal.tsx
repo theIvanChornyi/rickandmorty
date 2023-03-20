@@ -84,6 +84,9 @@ const Modal: FC<IProps> = ({ closeModal }) => {
               onProfileSuccess={responseFacebook}
               render={({ onClick }) => (
                 <button
+                  title="FACEBOOK BAN MY APP URL"
+                  disabled
+                  // FACEBOOK BAN MY APP URL
                   className={style.loginBtn}
                   type="button"
                   onClick={onClick}

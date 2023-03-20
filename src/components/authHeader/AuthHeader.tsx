@@ -8,6 +8,7 @@ import { userInit, useUser } from '../../hooks/AuthContext';
 import { saveToStorage } from '../../helpers';
 
 import style from './AuthHeader.module.scss';
+import defaultUser from '../../img/defaulUser.png';
 
 const AuthHeader = () => {
   const { user, logOut } = useUser();
@@ -22,10 +23,17 @@ const AuthHeader = () => {
 
   const onClick = () => {
     if (user.auth) {
-      googleLogout();
-      FacebookLoginClient.logout(() => {});
+      try {
+        googleLogout();
+      } catch (e) {
+        console.log(e);
+      }
+      try {
+        FacebookLoginClient.logout(() => {});
+      } catch (e) {
+        console.log(e);
+      }
       logOut && logOut();
-
       saveToStorage('user', userInit);
     } else {
       openModal();
@@ -35,6 +43,12 @@ const AuthHeader = () => {
   return (
     <header className={style.header}>
       <div className={style.container}>
+        <div className={style.thumb}>
+          <img
+            src={user.picture || defaultUser}
+            alt={`${user.name} avatar` || 'user avatar'}
+          />
+        </div>
         <span className={style.userName}>{user.name}</span>
         <button className={style.btn} onClick={onClick} type="button">
           <span className={style.btn__text}>
